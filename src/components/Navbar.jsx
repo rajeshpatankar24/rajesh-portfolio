@@ -48,9 +48,9 @@ const Navbar = ({ theme, setTheme }) => {
                 🎨
               </button>
               {themeOpen && (
-                <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-2xl overflow-hidden z-50" style={{ backgroundColor: 'rgb(var(--base-100))' }}>
+                <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-2xl overflow-hidden z-50 border" style={{ backgroundColor: 'rgb(var(--base-100))', borderColor: 'rgb(var(--base-300))' }}>
                   <div className="p-2">
-                    <p className="px-3 py-2 text-sm font-bold opacity-60">Choose Theme</p>
+                    <p className="px-3 py-2 text-sm font-bold" style={{ color: 'rgb(var(--base-content))' }}>Choose Theme</p>
                     {themes.map((t) => (
                       <button
                         key={t}
@@ -59,9 +59,13 @@ const Navbar = ({ theme, setTheme }) => {
                           setThemeOpen(false)
                         }}
                         className={`w-full text-left px-3 py-2 rounded-lg capitalize transition-colors ${
-                          theme === t ? 'bg-primary text-white' : 'hover:bg-base-200'
+                          theme === t ? '' : ''
                         }`}
-                        style={theme === t ? { backgroundColor: 'rgb(var(--primary))', color: 'white' } : {}}
+                        style={
+                          theme === t 
+                            ? { backgroundColor: 'rgb(var(--primary))', color: 'white' } 
+                            : { color: 'rgb(var(--base-content))' }
+                        }
                       >
                         <span>{t}</span>
                         {theme === t && <span className="ml-2">✓</span>}
