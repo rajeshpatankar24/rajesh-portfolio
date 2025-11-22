@@ -6,7 +6,7 @@ const Projects = () => {
       icon: '📋',
       tags: ['React', 'Node.js', 'MongoDB', 'Express'],
       features: ['Bid Management', 'Document Upload', 'Real-time Tracking', 'User Authentication'],
-      link: '#',
+      link: 'https://tender-ibxk.vercel.app/',
       color: 'rgb(59, 130, 246)'
     },
     {
@@ -15,7 +15,7 @@ const Projects = () => {
       icon: '💬',
       tags: ['React', 'Socket.io', 'Node.js', 'MongoDB'],
       features: ['Real-time Messaging', 'Group Chats', 'Media Sharing', 'Online Status'],
-      link: '#',
+      link: 'https://chat-app-sage-beta.vercel.app/',
       color: 'rgb(147, 51, 234)'
     },
     {
@@ -24,7 +24,7 @@ const Projects = () => {
       icon: '❄️',
       tags: ['React', 'Tailwind CSS', 'Node.js', 'Express'],
       features: ['Service Booking', 'Product Catalog', 'Contact Forms', 'Responsive Design'],
-      link: '#',
+      link: 'https://glacial-engineers.vercel.app/',
       color: 'rgb(236, 72, 153)'
     }
   ]
@@ -106,6 +106,8 @@ const Projects = () => {
                 {/* View Button */}
                 <a
                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-primary w-full group-hover:scale-105 transition-transform"
                   style={{ backgroundColor: project.color, borderColor: project.color }}
                 >

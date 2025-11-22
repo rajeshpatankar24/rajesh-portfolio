@@ -11,13 +11,8 @@ const Hero = () => {
         <div className="mb-8 animate-fade-in">
           {/* Animated Code Brackets */}
           
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Hi, I'm Rajesh Patankar
-            </span>
-          </h1>
 
+          
           <div className="flex justify-center items-center gap-4 mb-8">
             <div className="text-6xl md:text-8xl font-bold animate-float" style={{ color: 'rgb(var(--primary))', animationDelay: '0s' }}>
               {'<'}
@@ -35,6 +30,13 @@ const Hero = () => {
               {'>'}
             </div>
           </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Hi, I'm Rajesh Patankar
+            </span>
+          </h1>
+
           
           <p className="text-2xl md:text-3xl text-base-content opacity-80 mb-4 animate-slide-up animation-delay-100">
             Full Stack MERN Developer
@@ -54,6 +56,14 @@ const Hero = () => {
             <span>View My Work</span>
             <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
           </button>
+          <a
+            href="/Rajesh patankar_resume.pdf"
+            download="Rajesh patankar_resume.pdf"
+            className="btn btn-outline btn-primary btn-lg group"
+          >
+            <span>Download Resume</span>
+            <span className="ml-2 group-hover:scale-110 transition-transform inline-block">📄</span>
+          </a>
           <button
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
             className="btn btn-outline btn-primary btn-lg group"

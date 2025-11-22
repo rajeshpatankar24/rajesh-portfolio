@@ -35,6 +35,13 @@ const Navbar = ({ theme, setTheme }) => {
                 {item}
               </button>
             ))}
+            <a
+              href="/Rajesh patankar_resume.pdf"
+              download="Rajesh patankar_resume.pdf.pdf"
+              className="btn btn-primary btn-sm"
+            >
+              Resume
+            </a>
           </div>
 
           {/* Theme Switcher & Mobile Menu */}

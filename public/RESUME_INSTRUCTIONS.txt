@@ -1,0 +1,9 @@
+HOW TO ADD YOUR RESUME:
+
+1. Save your resume as "resume.pdf"
+2. Place it in the "public" folder (same location as this file)
+3. The download button will automatically work!
+
+File path should be: public/resume.pdf
+
+Note: Make sure the file name is exactly "resume.pdf" (lowercase)

@@ -68,9 +68,9 @@ const About = () => {
                 </div>
                 
                 {/* Overlay badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-base-100/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                  <p className="font-bold text-lg">Rajesh Patankar</p>
-                  <p className="text-sm opacity-70">Full Stack MERN Developer</p>
+                <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border-2 border-white/20">
+                  <p className="font-bold text-lg text-white">Rajesh Patankar</p>
+                  <p className="text-sm text-white/90 font-medium">Full Stack MERN Developer</p>
                 </div>
               </div>
             </div>
