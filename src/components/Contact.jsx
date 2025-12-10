@@ -22,10 +22,8 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 px-4 bg-base-200">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Get In Touch
-          </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12" style={{ color: 'rgb(var(--primary))' }}>
+          Get In Touch
         </h2>
         
         <div className="grid md:grid-cols-2 gap-12">
@@ -55,7 +53,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm opacity-70 text-base-content">Phone</p>
-                  <p className="font-semibold text-base-content">+91 xxxxxxxxxx</p>
+                  <p className="font-semibold text-base-content">+91 9522440876</p>
                 </div>
               </div>
               

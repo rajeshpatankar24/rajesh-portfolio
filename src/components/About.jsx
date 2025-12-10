@@ -2,10 +2,8 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-4 bg-base-200">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in">
-          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            About Me
-          </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in" style={{ color: 'rgb(var(--primary))' }}>
+          About Me
         </h2>
         <p className="text-center text-base-content opacity-60 mb-12">Get to know me better</p>
         
@@ -52,7 +50,7 @@ const About = () => {
             {/* Image container with modern frame */}
             <div className="relative">
               {/* Animated border */}
-              <div className="absolute -inset-1 rounded-3xl opacity-75 blur-sm animate-pulse" style={{ background: 'linear-gradient(45deg, rgb(var(--primary)), rgb(var(--secondary)), rgb(var(--accent)))' }}></div>
+              <div className="absolute -inset-1 rounded-3xl opacity-75 blur-sm animate-pulse" style={{ backgroundColor: 'rgb(var(--primary))' }}></div>
               
               {/* Image card */}
               <div className="relative bg-base-100 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition duration-500">
@@ -68,7 +66,7 @@ const About = () => {
                 </div>
                 
                 {/* Overlay badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border-2 border-white/20">
+                <div className="absolute bottom-4 left-4 right-4 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border-2 border-white/20" style={{ backgroundColor: 'rgb(var(--secondary))' }}>
                   <p className="font-bold text-lg text-white">Rajesh Patankar</p>
                   <p className="text-sm text-white/90 font-medium">Full Stack MERN Developer</p>
                 </div>

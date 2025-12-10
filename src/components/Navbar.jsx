@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const Navbar = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [themeOpen, setThemeOpen] = useState(false)
+  const themeDropdownRef = useRef(null)
 
   const themes = ['light', 'dark', 'cyberpunk', 'synthwave', 'forest', 'luxury']
 
@@ -10,7 +11,40 @@ const Navbar = ({ theme, setTheme }) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' })
     setIsOpen(false)
+    setThemeOpen(false) // Close theme dropdown when navigating
   }
+
+  // Close theme dropdown on scroll or click outside
+  useEffect(() => {
+    const handleScroll = () => {
+      setThemeOpen(false)
+    }
+
+    const handleClickOutside = (event) => {
+      if (themeDropdownRef.current && !themeDropdownRef.current.contains(event.target)) {
+        setThemeOpen(false)
+      }
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setThemeOpen(false)
+        setIsOpen(false)
+      }
+    }
+
+    if (themeOpen) {
+      window.addEventListener('scroll', handleScroll)
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('keydown', handleEscape)
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [themeOpen])
 
   return (
     <nav className="fixed w-full z-50 bg-base-100/90 backdrop-blur-md shadow-lg" style={{ backgroundColor: 'rgb(var(--base-100) / 0.9)' }}>
@@ -18,7 +52,7 @@ const Navbar = ({ theme, setTheme }) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold" style={{ color: 'rgb(var(--primary))' }}>
               &lt;/&gt;
             </span>
           </div>
@@ -47,15 +81,19 @@ const Navbar = ({ theme, setTheme }) => {
           {/* Theme Switcher & Mobile Menu */}
           <div className="flex items-center gap-2">
             {/* Theme Dropdown */}
-            <div className="relative">
+            <div className="relative" ref={themeDropdownRef}>
               <button
                 onClick={() => setThemeOpen(!themeOpen)}
                 className="btn btn-circle btn-ghost"
+                aria-label="Change theme"
+                aria-expanded={themeOpen}
               >
-                🎨
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
               </button>
               {themeOpen && (
-                <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-2xl overflow-hidden z-50 border" style={{ backgroundColor: 'rgb(var(--base-100))', borderColor: 'rgb(var(--base-300))' }}>
+                <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-2xl overflow-hidden z-50 border animate-slide-up" style={{ backgroundColor: 'rgb(var(--base-100))', borderColor: 'rgb(var(--base-300))' }}>
                   <div className="p-2">
                     <p className="px-3 py-2 text-sm font-bold" style={{ color: 'rgb(var(--base-content))' }}>Choose Theme</p>
                     {themes.map((t) => (
@@ -65,7 +103,7 @@ const Navbar = ({ theme, setTheme }) => {
                           setTheme(t)
                           setThemeOpen(false)
                         }}
-                        className={`w-full text-left px-3 py-2 rounded-lg capitalize transition-colors ${
+                        className={`w-full text-left px-3 py-2 rounded-lg capitalize transition-colors hover:bg-base-200 ${
                           theme === t ? '' : ''
                         }`}
                         style={

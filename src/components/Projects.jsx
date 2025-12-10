@@ -6,8 +6,7 @@ const Projects = () => {
       icon: '📋',
       tags: ['React', 'Node.js', 'MongoDB', 'Express'],
       features: ['Bid Management', 'Document Upload', 'Real-time Tracking', 'User Authentication'],
-      link: 'https://tender-ibxk.vercel.app/',
-      color: 'rgb(59, 130, 246)'
+      link: 'https://tender-management-mu.vercel.app/'
     },
     {
       title: 'Real-Time Chat Application',
@@ -15,8 +14,7 @@ const Projects = () => {
       icon: '💬',
       tags: ['React', 'Socket.io', 'Node.js', 'MongoDB'],
       features: ['Real-time Messaging', 'Group Chats', 'Media Sharing', 'Online Status'],
-      link: 'https://chat-app-sage-beta.vercel.app/',
-      color: 'rgb(147, 51, 234)'
+      link: 'https://chat-app-sage-beta.vercel.app/'
     },
     {
       title: 'Business AC Website',
@@ -24,18 +22,15 @@ const Projects = () => {
       icon: '❄️',
       tags: ['React', 'Tailwind CSS', 'Node.js', 'Express'],
       features: ['Service Booking', 'Product Catalog', 'Contact Forms', 'Responsive Design'],
-      link: 'https://glacial-engineers.vercel.app/',
-      color: 'rgb(236, 72, 153)'
+      link: 'https://glacial-engineers.vercel.app/'
     }
   ]
 
   return (
     <section id="projects" className="py-20 px-4 bg-base-200">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in">
-          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Featured Projects
-          </span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-fade-in" style={{ color: 'rgb(var(--primary))' }}>
+          Featured Projects
         </h2>
         <p className="text-center text-base-content opacity-60 mb-12">Some of my recent work</p>
 
@@ -44,14 +39,14 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative bg-base-100 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 animate-slide-up"
+              className="group relative bg-base-100 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 animate-slide-up flex flex-col h-full"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Icon Header */}
               <div 
                 className="relative h-48 flex items-center justify-center overflow-hidden"
                 style={{ 
-                  background: `linear-gradient(135deg, ${project.color}20, ${project.color}40)`
+                  backgroundColor: 'rgb(var(--primary) / 0.1)'
                 }}
               >
                 <div className="text-8xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
@@ -61,16 +56,16 @@ const Projects = () => {
                 {/* Animated Background Circles */}
                 <div 
                   className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-20 animate-blob"
-                  style={{ backgroundColor: project.color }}
+                  style={{ backgroundColor: 'rgb(var(--primary))' }}
                 ></div>
                 <div 
                   className="absolute bottom-0 left-0 w-24 h-24 rounded-full opacity-20 animate-blob animation-delay-2000"
-                  style={{ backgroundColor: project.color }}
+                  style={{ backgroundColor: 'rgb(var(--primary))' }}
                 ></div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold mb-3 text-base-content group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
@@ -92,35 +87,36 @@ const Projects = () => {
                 </div>
 
                 {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6 flex-grow">
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 rounded-full text-xs font-semibold bg-base-200 text-base-content hover:scale-110 transition-transform"
+                      className="px-3 py-1 rounded-full text-xs font-semibold bg-base-200 text-base-content hover:scale-110 transition-transform h-fit"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* View Button */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary w-full group-hover:scale-105 transition-transform"
-                  style={{ backgroundColor: project.color, borderColor: project.color }}
-                >
-                  <span>View Project</span>
-                  <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
-                </a>
+                {/* View Button - Always at bottom */}
+                <div className="mt-auto">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary w-full group-hover:scale-105 transition-transform"
+                  >
+                    <span>View Project</span>
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform inline-block">→</span>
+                  </a>
+                </div>
               </div>
 
               {/* Hover Glow Effect */}
               <div 
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"
                 style={{ 
-                  boxShadow: `0 0 60px ${project.color}60`
+                  boxShadow: '0 0 60px rgb(var(--primary) / 0.6)'
                 }}
               ></div>
             </div>
